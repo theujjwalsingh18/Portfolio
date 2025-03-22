@@ -115,6 +115,7 @@ const techStacks = [
   { icon: "python.svg", language: "Python" },
   { icon: "cpp.svg", language: "C/C++" },
   { icon: "golang.svg", language: "GoLang" },
+  { icon: "vercel.svg", language: "Vercel"},
   { icon: 'https://railway.com/brand/logo-dark.svg', language: "Railway" },
 ];
 
