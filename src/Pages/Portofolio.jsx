@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { db, collection } from "../firebase";
-import { getDocs } from "firebase/firestore";
+import { getDocs, orderBy, query} from "firebase/firestore";
 import PropTypes from "prop-types";
 import SwipeableViews from "react-swipeable-views";
 import { useTheme } from "@mui/material/styles";
@@ -112,6 +112,7 @@ const techStacks = [
   { icon: "nodejs.svg", language: "Node JS" },
   { icon: "mongodb.svg", language: "MongoDB" },
   { icon: "mysql.svg", language: "MySQL" },
+  { icon: "firebase.svg", language: "Firebase"},
   { icon: "python.svg", language: "Python" },
   { icon: "cpp.svg", language: "C/C++" },
   { icon: "golang.svg", language: "GoLang" },
@@ -141,8 +142,10 @@ export default function FullWidthTabs() {
       const projectCollection = collection(db, "projects");
       const certificateCollection = collection(db, "certificates");
 
+      const projectQuery = query(projectCollection, orderBy("created_date", "desc"));
+
       const [projectSnapshot, certificateSnapshot] = await Promise.all([
-        getDocs(projectCollection),
+        getDocs(projectQuery),
         getDocs(certificateCollection),
       ]);
 

@@ -71,7 +71,7 @@ const ProjectStats = ({ project }) => {
         </div>
         <div className="flex-grow">
           <div className="text-lg md:text-xl font-semibold text-purple-200">{featuresCount}</div>
-          <div className="text-[10px] md:text-xs text-gray-400">Main Future</div>
+          <div className="text-[10px] md:text-xs text-gray-400">Main Features</div>
         </div>
       </div>
     </div>
@@ -83,7 +83,6 @@ const handleGithubClick = (githubLink) => {
     Swal.fire({
       icon: 'info',
       title: 'Source Code Private',
-      text: 'Maaf, source code untuk proyek ini bersifat privat.',
       confirmButtonText: 'Mengerti',
       confirmButtonColor: '#3085d6',
       background: '#030014',
